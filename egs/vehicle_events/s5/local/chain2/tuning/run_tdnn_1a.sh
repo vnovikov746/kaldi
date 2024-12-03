@@ -330,6 +330,7 @@ if [ $stage -le 22 ]; then
     --max-param-change 2.0 \
     --num-jobs-initial 2 --num-jobs-final 5 \
     --minibatch-size 256,128,64 \
+    --use-gpu wait \
      $dir/egs $dir || exit 1;
 fi
 
