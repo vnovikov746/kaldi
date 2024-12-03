@@ -220,7 +220,7 @@ Install_debian () {
   ( set -x;
     apt-get update &&
     apt-get install -y wget apt-transport-https ca-certificates gnupg &&
-    wget -qO- $intel_key_url | apt-key --keyring $keyring add - &&
+    wget -e use_proxy=yes -e http_proxy=http://172.17.0.1:3128 -e https_proxy=http://172.17.0.1:3128 -qO- $intel_key_url | apt-key --keyring $keyring add - &&
     echo "deb [signed-by=${keyring}] $apt_repo all main" \
          > "$sources_d/intel-mkl.list" ) || return 1
 
