@@ -27,7 +27,6 @@ fi
 if [ $stage -eq 1 ]; then
   # format the data as Kaldi data directories
   for part in dev-clean-2 train-clean-5; do
-    echo $data/$part
     # use underscore-separated names in data directories.
     local/data_prep.sh $data/$part data/$(echo $part | sed s/-/_/g)
   done
